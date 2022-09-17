@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row gx-5">
+    <div class="col-12 col-md-6 col-lg-4 tile" *ngFor="let post of posts">
+      <br />
+      <!-- <p data-letters={{post.name}}> {{post.name}}</p>or whatever structure you used -->
+      <h6>Posted By {{ post.name }}</h6>
+      <!-- {{post.name | shortName}} -->
+      Posted on {{ post.created_at | date }}<br />
+      <img class="tile-image" src="{{ imagePath }}{{ post.image }}" alt="img" />
+      <!-- <video controls>
+          <source src="{{imagePath}}{{post.image}}" type="video/mp4">
+        </video> -->
+      <br />
+      <br />
+      <p>{{ post.description }}</p>
+      <div>
+        <br />
+        <form #userForm="ngForm" (ngSubmit)="addReport(userForm, post.id, post.user_id)">
+          <div class="input-group mb">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Report..."
+              aria-label="Your report..."
+              aria-describedby="basic-addon2"
+              name= "issue"
+              ngModel
+            />
+            <div class="input-group-append">
+              <button class="btn btn-outline-primary"  type="submit">Add</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <br />
+  </div>
+</div>

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,OAAO,CAAC,qEAAI;AACZ,OAAO,CAAC,6EAAI;AACZ,AAAA,aAAa,CAAA;EACX,WAAW,EAAE,mBAAmB;EAChC,KAAK,EAAE,OAAiB;EACxB,SAAS,EAAE,IAAI;CAChB;;AACD,AAAA,aAAa,CAAC,CAAC,CAAA;EACb,SAAS,EAAE,IAAI;EACf,KAAK,EAAE,OAAe;EACtB,WAAW,EAAE,mBAAmB;CACjC;;AAED,AAAA,CAAC,CAAA;EACC,KAAK,EAAE,OAAe;CACvB;;AACD,AAAA,CAAC,CAAA;EACC,WAAW,EAAE,qBAAqB;CACnC;;AACD,AAAA,GAAG,CAAA;EACD,aAAa,EAAE,GAAG;CACnB",
+    "sources": [
+        "../src/app/includes/header/header.component.scss"
+    ],
+    "names": [],
+    "file": "header.component.css"
+}

@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <table class="table mt-5">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">City</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Birthday</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let requester of requesters">
+        <th scope="row">{{requester.name}}</th>
+        <td>{{requester.city}}</td>
+        <td>{{requester.gender}}</td>
+        <td>{{requester.dob}}</td>
+        <td>
+          <!-- <ng-container *ngIf="requester.status == 0; then first; else second">
+            <button class="btn btn-secondary" (click)="accept(requester.id, requester.user_id, requester.friend_id, requester.name)">Accept</button> &nbsp; &nbsp;
+            <button class="btn btn-danger" (click)="reject(requester.id, requester.user_id, requester.friend_id)">Reject</button>
+          </ng-container>
+          <ng-template #first>
+            <button class="btn btn-primary">Friends</button>
+          </ng-template> -->
+          <ng-container [ngSwitch]="true">
+            <div *ngSwitchCase="requester.status === 0"><button class="btn btn-secondary" (click)="accept(requester.id, requester.user_id, requester.friend_id, requester.name)">Accept</button> &nbsp; &nbsp;
+              <button class="btn btn-danger" (click)="reject(requester.id, requester.user_id, requester.friend_id)">Reject</button></div>
+            <div *ngSwitchCase="requester.status === 1"><button class="btn btn-primary">Friends</button></div>
+            <div *ngSwitchDefault><button class="btn btn-danger">Rejected</button></div>
+          </ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- <div *ngIf="isLoggedIn; else loggedOut">
+  Welcome back, friend.
+</div>
+
+<ng-template #loggedOut>
+  Please friend, login.
+</ng-template> -->

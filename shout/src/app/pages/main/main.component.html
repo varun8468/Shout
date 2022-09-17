@@ -1,0 +1,93 @@
+<div class="container-fluid">
+  <div class="hero-image d-flex flex-column justify-content-center">
+    <div class="display-3">Welcome to Shout</div>
+    <div class="hero-subheading text-center">
+      Connecting ideas and people – how talk can change our lives
+    </div>
+    <form class="text-center" [formGroup]="searchForm" (ngSubmit)="searchUser()">
+      <input
+      class="hero-input text-center"
+      placeholder="Search your friend here"
+      type="text"
+      formControlName="user"
+      data-toggle="modal" data-target="#exampleModal"
+    />
+     <br> <br>
+    <!-- <button data-toggle="modal" type="submit" data-target="#exampleModal" class="btn btn-primary ">Search</button> -->
+    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Search
+    </button>
+    </form>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-dark" id="exampleModalLabel ">Search result</h5>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">City</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of searchedUser">
+                  <th scope="row">{{user.name}}</th>
+                  <td>{{user.city}}</td>
+                  <td>{{user.gender}}</td>
+                  <td>
+                    <div *ngIf="!isFriend; else elseBlock">
+                      <button class="btn btn-secondary" (click)="addAsFriend(user.id, user.name)">Add as friend</button>
+                  </div>
+                  <ng-template #elseBlock>
+                    <button class="btn btn-primary">Request sent</button>
+                  </ng-template>
+                </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <div class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
+        <a href="" class="navbar-brand text-light mt">
+          <div class="display-6 font-weight-bold">Hello, <br> {{username}}</div>
+        </a>
+        <ul id="ul" class="navbar-nav d-flex flex-column mt-5 w-100">
+          <li class="navbar-item w-100">
+            <a routerLink="../main" class="nav-link text-light p1-4 active">Feeds</a>
+          </li>
+          <li class="navbar-item w-100">
+            <a routerLink="friends" class="nav-link text-light p1-4">Friend Suggestions</a>
+          </li>
+          <li class="navbar-item w-100">
+
+            <a routerLink="feed" class="nav-link text-light p1-4">Make your feed</a>
+
+          </li>
+          <li class="navbar-item w-100">
+            <a routerLink="requests" class="nav-link text-light p1-4">Friend Requests</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-9">
+      <section>
+        <router-outlet></router-outlet>
+      </section>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+</div>

@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <table class="table mt-5">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">City</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users" >
+
+        <th scope="row" *ngIf="user.authenticated">{{ user.name }}</th>
+        <td *ngIf="user.authenticated">{{ user.city }}</td>
+        <td *ngIf="user.authenticated">
+          <div *ngIf="!isFriend; else elseBlock">
+            <button
+              class="btn btn-secondary"
+              (click)="addAsFriend(user.id, user.name)"
+            >
+              Add as friend
+            </button>
+          </div>
+          <ng-template #elseBlock>
+            <button class="btn btn-primary">Request sent</button>
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!--  -->

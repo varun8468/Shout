@@ -1,0 +1,155 @@
+
+<div class="container-fluid" >
+  <form [formGroup]="signupForm" >
+    <div>
+      <h2
+        style="text-align: center; font-family: 'Times New Roman', Times, serif c"
+      >
+        Registration Form
+      </h2>
+    </div>
+    <br />
+    <br />
+    <p>
+      <label for="name">Name :</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        ng-model="name"
+        formControlName="name"
+        required
+      />
+    </p>
+    <div
+      *ngIf="
+        (submitted || PostData['name'].touched) &&
+        PostData['name'].invalid
+      "
+    >
+      <div
+        *ngIf="
+          PostData['name'].errors &&
+          PostData['name'].errors['required']
+        "
+      >
+        <p> Name is required.</p>
+      </div>
+    </div>
+    <br />
+
+    <p>
+      <label for="email">Email : </label>
+      <input type="text" id="email" name="email" formControlName="email" />
+    </p>
+    <div
+      *ngIf="
+        (submitted || PostData['email'].touched) && PostData['email'].invalid
+      "
+    >
+      <div
+        *ngIf="PostData['email'].errors && PostData['email'].errors['required']"
+      >
+        <p>Email is required.</p>
+      </div>
+    </div>
+    <br />
+    <p>
+      <label for="password">Password: </label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        formControlName="password"
+      />
+    </p>
+    <div
+      *ngIf="
+        (submitted || PostData['password'].touched) &&
+        PostData['password'].invalid
+      "
+    >
+      <div
+        *ngIf="
+          PostData['password'].errors && PostData['password'].errors['required']
+        "
+      >
+        <p>Password is required.</p>
+      </div>
+    </div>
+    <br />
+    <p>
+      <label for="gender">Geneder : </label>
+      <input
+        type="text"
+        value="male"
+        id="gender"
+        name="gender"
+        formControlName="gender"
+      />
+    </p>
+    <div
+      *ngIf="
+        (submitted || PostData['gender'].touched) && PostData['gender'].invalid
+      "
+    >
+      <div
+        *ngIf="
+          PostData['gender'].errors && PostData['gender'].errors['required']
+        "
+      >
+        <p>Gender is required.</p>
+      </div>
+    </div>
+    <br />
+    <p>
+      <label for="dob">Date of birth : </label>
+      <input
+        type="date"
+        id="dob"
+        name="dob"
+        formControlName="dob"
+      />
+    </p>
+    <div
+      *ngIf="
+        (submitted || PostData['dob'].touched) && PostData['dob'].invalid
+      "
+    >
+      <div
+        *ngIf="PostData['dob'].errors && PostData['dob'].errors['required']"
+      >
+        <p>date is required.</p>
+      </div>
+    </div>
+    <br>
+    <p>
+      <label for="city">City : </label>
+      <input
+        type="text"
+        id="city"
+        name="city"
+        formControlName="city"
+      />
+    </p>
+    <div
+      *ngIf="
+        (submitted || PostData['city'].touched) && PostData['city'].invalid
+      "
+    >
+      <div
+        *ngIf="PostData['city'].errors && PostData['city'].errors['required']"
+      >
+        <p>City is required.</p>
+      </div>
+    </div>
+    <br />
+    <button type="button" (click)="onSubmit()" class="btn btn-primary">Register</button>
+    &nbsp;
+    
+    <button type="button" class="btn btn-primary" [routerLink]="['/home']">
+      Back
+    </button>
+  </form>
+
+</div> 

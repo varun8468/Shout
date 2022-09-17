@@ -1,0 +1,19 @@
+
+<nav class="navbar bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink='/home'>
+      <img src="../../../assets/shot.jpeg" width="60px">
+      Shout <br>
+      <p> &nbsp; &nbsp; &nbsp; Raise your voice</p>
+    </a>
+    <div class="d-flex">
+      <button class="btn" routerLink="/contact"> Contact us</button>&nbsp;
+
+   <div *ngIf="!isLoggedin; else elseBlock"> <button class="btn" routerLink="/register"> Signup</button></div>
+   <ng-template #elseBlock><button class="btn" (click)="logout()"> Logout</button></ng-template><br>
+
+
+   </div>
+  </div>
+</nav>
+

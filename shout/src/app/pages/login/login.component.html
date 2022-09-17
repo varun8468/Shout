@@ -1,0 +1,42 @@
+
+  <div class="container ">
+
+    <form [formGroup]="loginForm" >
+      <h2 class="text-center display-6">Login Here</h2>
+      <!-- <div><img src="{{imagePath}}" alt="Avatar" class="avatar"></div> <br>  -->
+      <div class="form-group row">
+        <label for="email">Email :</label>
+        <div class="col">
+          <input type="email" id="email" name="email" ng-model="email" formControlName="email" required></div>
+       </div>
+      <div *ngIf="(submitted || PostData['email'].touched) && PostData['email'].invalid">
+        <div *ngIf="PostData['email'].errors && PostData['email'].errors['required']">
+        <label><h6>Enter your Mail-Id.</h6></label>
+        </div>
+      </div><br>
+    <div class="form-group ">
+        <label for="password">Password: </label>
+       <div ><input type="password" id="password" name="password" formControlName="password"></div>
+    </div>
+      <div *ngIf="(submitted || PostData['password'].touched) && PostData['password'].invalid">
+        <div *ngIf="PostData['password'].errors && PostData['password'].errors['required']">
+         <label><h6>Enter Your Password.</h6></label>
+        </div>
+      </div><br>
+      <!-- <div class="card-footer text-left">
+        <small><a routerLink="../forgot-password">Forgot Password</a></small>
+      </div> -->
+
+      <p *ngIf="!loginForm.valid; else elseBlock"> <button type="submit" disabled class="btn">Login</button></p>
+   <ng-template #elseBlock><button type="button" (click)="onSubmit()" class="btn" >Login</button></ng-template><br>
+
+      <!-- <div class="mb-3"><button type="button" class="btn btn-primary" [routerLink]="['/main']">Login</button></div> -->
+      <div class="card-footer text-center">
+        <small>Not a Member? &nbsp;<a [routerLink]="['/register']"> Register Here</a></small> <br>
+        <small><a routerLink="../forgot-password">Forgot Password ?</a></small>
+
+      </div>
+    </form>
+
+  </div>
+

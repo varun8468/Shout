@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+img{
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 2px solid black;
+}
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: rgba(93, 97, 88, 0.76);
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+  }
+input{
+    border-radius: 15px;
+    width: 50%;
+}
+[data-letters]:before {
+    content:attr(data-letters);
+    display:inline-block;
+    font-size:1em;
+    width:2.5em;
+    height:2.5em;
+    line-height:2.5em;
+    text-align:center;
+    border-radius:50%;
+    background:plum;
+    vertical-align:middle;
+    margin-right:1em;
+    color:white;
+    }
+*{
+  font-family: poppins;
+}
+h6{
+  font-weight: 600;
+  font-size: larger;
+}
+
+.tile {
+  /* TODO: MODULE_CARDS */
+  /* 1. Fill in the required properties. */
+  justify-content: center;
+  overflow: hidden;
+  height: 100%;
+  max-width: 100%;
+}
+.tile img{
+  width: 100%;
+  object-fit: cover;
+}
+.tile img:hover {
+  /* TODO: MODULE_CARDS */
+  /* 1. Fill in the required properties. */
+  filter: brightness(50%);
+  cursor: pointer;
+  transform: scale(1.1);
+}
